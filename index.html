@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adda of AI – Ultra Pro</title>
+<link href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css" rel="stylesheet">
+<style>
+    body{
+        margin:0;
+        font-family:Arial, sans-serif;
+        background:#0d1117;
+        color:#fff;
+    }
+    header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:15px 20px;
+        background:#161b22;
+        border-bottom:1px solid #30363d;
+        position:sticky;
+        top:0;
+        z-index:50;
+    }
+    .logo{
+        font-size:22px;
+        font-weight:800;
+        background:linear-gradient(45deg,#5ab2ff,#b37eff);
+        -webkit-background-clip:text;
+        color:transparent;
+    }
+    .search-box{
+        margin:20px auto;
+        max-width:600px;
+        padding:12px 20px;
+        background:#161b22;
+        border:1px solid #30363d;
+        border-radius:12px;
+        display:flex;
+        gap:10px;
+        align-items:center;
+    }
+    .search-box input{
+        width:100%;
+        background:transparent;
+        border:none;
+        outline:none;
+        color:white;
+        font-size:16px;
+    }
+    .grid{
+        padding:20px;
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:20px;
+    }
+    .card{
+        background:#161b22;
+        border:1px solid #30363d;
+        padding:15px;
+        border-radius:14px;
+        transition:.3s;
+    }
+    .card:hover{
+        transform:translateY(-5px);
+        box-shadow:0 0 20px #223;
+    }
+    .card img{
+        width:100%;
+        height:140px;
+        object-fit:cover;
+        border-radius:10px;
+    }
+    .tag{
+        margin-top:8px;
+        display:inline-block;
+        padding:4px 10px;
+        border-radius:10px;
+        font-size:12px;
+        background:#238636;
+    }
+    .paid{background:#8b5cf6;}
+    .title{
+        font-size:18px;
+        font-weight:700;
+        margin:10px 0 5px;
+    }
+    .desc{
+        color:#9ca3af;
+        font-size:14px;
+        min-height:45px;
+    }
+    .btn{
+        margin-top:12px;
+        display:block;
+        text-align:center;
+        background:#2563eb;
+        padding:10px;
+        border-radius:8px;
+        font-weight:600;
+        color:white;
+        text-decoration:none;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Adda of AI</div>
+    <div><i class="lucide-sparkles"></i></div>
+</header>
+
+<div class="search-box">
+    <i class="lucide-search"></i>
+    <input id="searchInput" type="text" placeholder="Search AI tools...">
+</div>
+
+<h2 style="padding-left:20px;font-weight:700;">🔥 Trending AI Tools</h2>
+
+<div id="toolsGrid" class="grid"></div>
+
+<script>
+const tools = [
+  {name:"ChatGPT", img:"https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg", desc:"Best AI chatbot for writers & coders.", url:"https://chat.openai.com", free:true},
+  {name:"Suno AI", img:"https://pbs.twimg.com/profile_images/1737527668102176768/Cj_GqOmS_400x400.jpg", desc:"Make songs with AI.", url:"https://suno.ai", free:false},
+  {name:"RunwayML", img:"https://yt3.googleusercontent.com/ytc/AIdro_k=s900", desc:"AI video editing.", url:"https://runwayml.com", free:false},
+  {name:"Midjourney", img:"https://upload.wikimedia.org/wikipedia/commons/e/ed/Midjourney_Emblem.png", desc:"AI image generator.", url:"https://midjourney.com", free:false},
+  {name:"Blackbox AI", img:"https://pbs.twimg.com/profile_images/1632766324888805377/1_400x400.jpg", desc:"AI code helper.", url:"https://blackbox.ai", free:true}
+];
+
+function loadTools(list){
+    const box = document.getElementById("toolsGrid");
+    box.innerHTML = "";
+    list.forEach(t=>{
+        box.innerHTML += `
+        <div class="card">
+            <img src="${t.img}">
+            <div class="title">${t.name}</div>
+            <div class="tag ${t.free?'':'paid'}">${t.free?'FREE':'PAID'}</div>
+            <div class="desc">${t.desc}</div>
+            <a class="btn" href="${t.url}" target="_blank">
+                Visit <i class="lucide-external-link"></i>
+            </a>
+        </div>`;
+    });
+}
+loadTools(tools);
+
+document.getElementById("searchInput").addEventListener("input", e=>{
+    const q = e.target.value.toLowerCase();
+    const filtered = tools.filter(t=>t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q));
+    loadTools(filtered);
+});
+</script>
+
+</body>
+</html>
