@@ -3,154 +3,226 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Adda of AI – Ultra Pro</title>
-<link href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css" rel="stylesheet">
+<title>Adda of AI - Professional AI Tools Directory</title>
+
 <style>
-    body{
-        margin:0;
-        font-family:Arial, sans-serif;
-        background:#0d1117;
-        color:#fff;
+    body {
+        margin: 0;
+        font-family: "Poppins", Arial, sans-serif;
+        background: #f5f7fa;
+        color: #222;
     }
-    header{
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        padding:15px 20px;
-        background:#161b22;
-        border-bottom:1px solid #30363d;
-        position:sticky;
-        top:0;
-        z-index:50;
+
+    /* Header */
+    header {
+        background: #111827;
+        color: white;
+        padding: 16px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
-    .logo{
-        font-size:22px;
-        font-weight:800;
-        background:linear-gradient(45deg,#5ab2ff,#b37eff);
-        -webkit-background-clip:text;
-        color:transparent;
+
+    .logo {
+        font-size: 26px;
+        font-weight: 800;
+        letter-spacing: 1px;
+        background: linear-gradient(45deg,#00d1ff,#b47bff);
+        -webkit-background-clip: text;
+        color: transparent;
     }
-    .search-box{
-        margin:20px auto;
-        max-width:600px;
-        padding:12px 20px;
-        background:#161b22;
-        border:1px solid #30363d;
-        border-radius:12px;
-        display:flex;
-        gap:10px;
-        align-items:center;
+
+    /* Search Bar */
+    .search-box {
+        max-width: 700px;
+        margin: 25px auto;
+        padding: 14px 20px;
+        background: white;
+        border-radius: 12px;
+        border: 2px solid #e3e3e3;
+        display: flex;
+        gap: 10px;
+        align-items: center;
     }
-    .search-box input{
-        width:100%;
-        background:transparent;
-        border:none;
-        outline:none;
-        color:white;
-        font-size:16px;
+    .search-box input {
+        width: 100%;
+        border: none;
+        outline: none;
+        font-size: 16px;
     }
-    .grid{
-        padding:20px;
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-        gap:20px;
+
+    /* Tools Grid */
+    .grid {
+        display: grid;
+        padding: 20px;
+        gap: 25px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
-    .card{
-        background:#161b22;
-        border:1px solid #30363d;
-        padding:15px;
-        border-radius:14px;
-        transition:.3s;
+
+    .card {
+        background: white;
+        border-radius: 14px;
+        padding: 15px;
+        border: 1px solid #e0e0e0;
+        transition: 0.3s;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    .card:hover{
-        transform:translateY(-5px);
-        box-shadow:0 0 20px #223;
+    .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
     }
-    .card img{
-        width:100%;
-        height:140px;
-        object-fit:cover;
-        border-radius:10px;
+    .card img {
+        width: 100%;
+        height: 150px;
+        border-radius: 10px;
+        object-fit: cover;
     }
-    .tag{
-        margin-top:8px;
-        display:inline-block;
-        padding:4px 10px;
-        border-radius:10px;
-        font-size:12px;
-        background:#238636;
+
+    .title {
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 10px;
     }
-    .paid{background:#8b5cf6;}
-    .title{
-        font-size:18px;
-        font-weight:700;
-        margin:10px 0 5px;
+
+    .category {
+        display: inline-block;
+        margin-top: 6px;
+        padding: 5px 12px;
+        font-size: 12px;
+        border-radius: 8px;
+        font-weight: 600;
+        color: white;
     }
-    .desc{
-        color:#9ca3af;
-        font-size:14px;
-        min-height:45px;
+
+    .free { background: #10b981; }
+    .paid { background: #8b5cf6; }
+
+    .desc {
+        font-size: 14px;
+        color: #555;
+        margin-top: 8px;
+        min-height: 48px;
     }
-    .btn{
-        margin-top:12px;
-        display:block;
-        text-align:center;
-        background:#2563eb;
-        padding:10px;
-        border-radius:8px;
-        font-weight:600;
-        color:white;
-        text-decoration:none;
+
+    .btn {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        background: #2563eb;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+        margin-top: 12px;
+        font-weight: 600;
     }
 </style>
 </head>
+
 <body>
 
 <header>
     <div class="logo">Adda of AI</div>
-    <div><i class="lucide-sparkles"></i></div>
 </header>
 
 <div class="search-box">
-    <i class="lucide-search"></i>
-    <input id="searchInput" type="text" placeholder="Search AI tools...">
+    <input id="searchInput" type="text" placeholder="Search any AI Tool...">
 </div>
 
-<h2 style="padding-left:20px;font-weight:700;">🔥 Trending AI Tools</h2>
+<h2 style="padding-left:20px;margin-top:20px;font-size:26px;font-weight:700;">
+    ⭐ All Popular AI Tools
+</h2>
 
 <div id="toolsGrid" class="grid"></div>
 
 <script>
 const tools = [
-  {name:"ChatGPT", img:"https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg", desc:"Best AI chatbot for writers & coders.", url:"https://chat.openai.com", free:true},
-  {name:"Suno AI", img:"https://pbs.twimg.com/profile_images/1737527668102176768/Cj_GqOmS_400x400.jpg", desc:"Make songs with AI.", url:"https://suno.ai", free:false},
-  {name:"RunwayML", img:"https://yt3.googleusercontent.com/ytc/AIdro_k=s900", desc:"AI video editing.", url:"https://runwayml.com", free:false},
-  {name:"Midjourney", img:"https://upload.wikimedia.org/wikipedia/commons/e/ed/Midjourney_Emblem.png", desc:"AI image generator.", url:"https://midjourney.com", free:false},
-  {name:"Blackbox AI", img:"https://pbs.twimg.com/profile_images/1632766324888805377/1_400x400.jpg", desc:"AI code helper.", url:"https://blackbox.ai", free:true}
+  {
+    name: "ChatGPT",
+    img: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+    desc: "Smartest AI chatbot for writing, coding & learning.",
+    url: "https://chat.openai.com",
+    free: true
+  },
+  {
+    name: "Gemini AI",
+    img: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",
+    desc: "Google’s AI model connected with live search.",
+    url: "https://gemini.google.com",
+    free: true
+  },
+  {
+    name: "Suno AI",
+    img: "https://pbs.twimg.com/profile_images/1737527668102176768/Cj_GqOmS_400x400.jpg",
+    desc: "Create full songs with AI music generator.",
+    url: "https://suno.ai",
+    free: false
+  },
+  {
+    name: "RunwayML",
+    img: "https://yt3.googleusercontent.com/ytc/AIdro_k15tJ9x0hZgD=s900",
+    desc: "Generate & edit videos using AI.",
+    url: "https://runwayml.com",
+    free: false
+  },
+  {
+    name: "Midjourney",
+    img: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Midjourney_Emblem.png",
+    desc: "World’s most artistic AI image generator.",
+    url: "https://midjourney.com",
+    free: false
+  },
+  {
+    name: "Leonardo AI",
+    img: "https://pbs.twimg.com/profile_images/1758120635339075584/iq2jhxl5_400x400.jpg",
+    desc: "High-quality game assets & images.",
+    url: "https://leonardo.ai",
+    free: true
+  },
+  {
+    name: "Blackbox AI",
+    img: "https://pbs.twimg.com/profile_images/1632766324888805377/1_400x400.jpg",
+    desc: "AI code suggestion & autocompletion.",
+    url: "https://blackbox.ai",
+    free: true
+  },
+  {
+    name: "ElevenLabs",
+    img: "https://static.elevenlabs.io/eleven_icon.png",
+    desc: "Most realistic AI voice & voice cloning.",
+    url: "https://elevenlabs.io",
+    free: false
+  }
 ];
 
-function loadTools(list){
-    const box = document.getElementById("toolsGrid");
-    box.innerHTML = "";
-    list.forEach(t=>{
-        box.innerHTML += `
-        <div class="card">
-            <img src="${t.img}">
-            <div class="title">${t.name}</div>
-            <div class="tag ${t.free?'':'paid'}">${t.free?'FREE':'PAID'}</div>
-            <div class="desc">${t.desc}</div>
-            <a class="btn" href="${t.url}" target="_blank">
-                Visit <i class="lucide-external-link"></i>
-            </a>
-        </div>`;
-    });
+function loadTools(list) {
+  const box = document.getElementById("toolsGrid");
+  box.innerHTML = "";
+  list.forEach(t => {
+    box.innerHTML += `
+      <div class="card">
+        <img src="${t.img}">
+        <div class="title">${t.name}</div>
+        <div class="category ${t.free ? 'free':'paid'}">${t.free ? 'FREE':'PAID'}</div>
+        <div class="desc">${t.desc}</div>
+        <a class="btn" href="${t.url}" target="_blank">Visit Website</a>
+      </div>
+    `;
+  });
 }
+
+// Initial Load
 loadTools(tools);
 
 document.getElementById("searchInput").addEventListener("input", e=>{
     const q = e.target.value.toLowerCase();
-    const filtered = tools.filter(t=>t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q));
-    loadTools(filtered);
+    loadTools(tools.filter(t =>
+        t.name.toLowerCase().includes(q) ||
+        t.desc.toLowerCase().includes(q)
+    ));
 });
 </script>
 
