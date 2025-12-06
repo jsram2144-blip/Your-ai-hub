@@ -3,210 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Adda of AI – Pro AI Tools Directory</title>
+<title>Adda of AI — Discover Powerful AI Tools</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#f5f7fa;
-  --card:#ffffff;
-  --text:#111;
-  --sub:#555;
-  --primary:#2563eb;
-}
-.dark{
-  --bg:#0f172a;
-  --card:#020617;
+  --bg:#0b1120;
+  --glass:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.15);
   --text:#f8fafc;
   --sub:#94a3b8;
+  --primary:#38bdf8;
+  --accent:#a855f7;
 }
+*{box-sizing:border-box}
 body{
   margin:0;
-  font-family:Poppins,Arial,sans-serif;
-  background:var(--bg);
+  font-family:Poppins,Arial;
+  background:
+   radial-gradient(circle at 20% 20%, #1e40af, transparent 40%),
+   radial-gradient(circle at 80% 10%, #7c3aed, transparent 40%),
+   var(--bg);
   color:var(--text);
-  transition:.3s;
 }
 a{text-decoration:none;color:inherit}
 
-/* Header */
+/* HEADER */
 header{
-  background:#111827;
-  color:white;
-  padding:15px 30px;
+  position:sticky;
+  top:0;
+  z-index:99;
+  background:rgba(15,23,42,.75);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:16px 40px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  position:sticky;
-  top:0;
-  z-index:100;
 }
 .logo{
-  font-size:26px;
+  font-size:30px;
   font-weight:800;
-  background:linear-gradient(45deg,#00d1ff,#b47bff);
+  background:linear-gradient(90deg,var(--primary),var(--accent));
   -webkit-background-clip:text;
   color:transparent;
 }
-.toggle{
-  cursor:pointer;
-  padding:8px 14px;
-  background:#2563eb;
-  border-radius:20px;
-  font-size:14px;
-  font-weight:600;
+.nav{
+  display:flex;
+  gap:24px;
+  font-weight:500;
+  font-size:15px;
 }
+.nav a:hover{opacity:.8}
 
-/* Hero */
+/* HERO */
 .hero{
-  padding:70px 20px;
+  padding:120px 20px 90px;
   text-align:center;
-  background:linear-gradient(135deg,#2563eb,#7c3aed);
-  color:white;
 }
 .hero h1{
-  font-size:48px;
-  margin-bottom:15px;
+  font-size:56px;
+  font-weight:800;
+  line-height:1.1;
+}
+.hero h1 span{
+  background:linear-gradient(90deg,#38bdf8,#a855f7);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 .hero p{
+  max-width:760px;
+  margin:22px auto 0;
   font-size:18px;
-  max-width:700px;
-  margin:auto;
-  opacity:.9;
+  color:var(--sub);
 }
 
-/* Search */
-.search{
-  max-width:700px;
-  margin:-30px auto 40px;
-  background:var(--card);
-  border-radius:14px;
-  padding:14px 20px;
-  box-shadow:0 10px 30px rgba(0,0,0,.1);
+/* SEARCH */
+.search-wrap{
+  max-width:720px;
+  margin:40px auto 30px;
+  background:var(--glass);
+  border:1px solid var(--border);
+  backdrop-filter:blur(18px);
+  border-radius:28px;
+  padding:16px 22px;
+  box-shadow:0 20px 50px rgba(0,0,0,.4);
 }
-.search input{
+.search-wrap input{
   width:100%;
+  background:transparent;
   border:none;
   outline:none;
-  font-size:16px;
-  background:transparent;
-  color:var(--text);
+  font-size:17px;
+  color:white;
 }
 
-/* Grid */
+/* GRID */
 .grid{
-  padding:20px;
+  padding:40px;
   display:grid;
+  gap:30px;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px;
 }
 .card{
-  background:var(--card);
-  border-radius:14px;
-  padding:15px;
-  transition:.3s;
-  box-shadow:0 4px 15px rgba(0,0,0,.06);
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:18px;
+  backdrop-filter:blur(15px);
+  transition:.35s;
 }
 .card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-12px) scale(1.02);
+  box-shadow:0 30px 60px rgba(0,0,0,.55);
 }
 .card img{
   width:100%;
-  height:140px;
+  height:120px;
   object-fit:contain;
 }
 .title{
-  font-size:20px;
+  font-size:21px;
   font-weight:700;
-  margin-top:10px;
 }
 .badge{
   display:inline-block;
+  margin:8px 0;
+  padding:4px 12px;
   font-size:12px;
-  padding:4px 10px;
-  border-radius:8px;
-  margin:6px 0;
-  background:#10b981;
-  color:white;
+  border-radius:999px;
+  background:#22c55e;
 }
-.paid{background:#8b5cf6}
+.paid{background:#a855f7}
 .desc{
   font-size:14px;
   color:var(--sub);
-  min-height:48px;
+  min-height:42px;
 }
-.btn{
-  margin-top:10px;
+.visit{
+  margin-top:14px;
   display:block;
   text-align:center;
-  background:var(--primary);
-  color:white;
-  padding:10px;
-  border-radius:8px;
+  padding:11px;
+  border-radius:16px;
   font-weight:600;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
 }
 
-/* Footer */
+/* FOOTER */
 footer{
-  margin-top:60px;
-  background:#020617;
-  color:#cbd5f5;
-  padding:40px 20px;
+  margin-top:90px;
+  padding:70px 20px;
+  text-align:center;
+  border-top:1px solid var(--border);
+  background:rgba(2,6,23,.7);
 }
-footer h3{margin-bottom:10px}
-footer p{max-width:700px;opacity:.8}
-footer .links{
-  margin-top:20px;
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
+footer p{
+  max-width:760px;
+  margin:auto;
+  font-size:14px;
+  color:var(--sub);
 }
-footer a{opacity:.8}
-footer a:hover{opacity:1}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .hero h1{font-size:38px}
+  .grid{padding:20px}
+}
 </style>
 </head>
 
-<body id="body">
+<body>
 
 <header>
   <div class="logo">Adda of AI</div>
-  <div class="toggle" onclick="toggleDark()">🌙 Dark Mode</div>
+  <nav class="nav">
+    <a href="#">Home</a>
+    <a href="#">Tools</a>
+    <a href="#">About</a>
+  </nav>
 </header>
 
 <section class="hero">
-  <h1>Discover Best AI Tools</h1>
-  <p>One platform for ChatGPT, Image AI, Video AI, Music AI, Coding AI & 20+ more powerful tools.</p>
+  <h1>Discover <span>Next-Gen AI Tools</span></h1>
+  <p>Explore powerful AI tools for writing, image, video, music & coding — all in one premium platform.</p>
 </section>
 
-<div class="search">
-  <input id="search" placeholder="Search AI Tools...">
+<div class="search-wrap">
+  <input id="search" placeholder="Search any AI tool…">
 </div>
 
 <div id="grid" class="grid"></div>
 
 <footer>
-  <h3>About Adda of AI</h3>
-  <p>Adda of AI is a professional AI tools directory helping students, creators, developers and businesses discover the best artificial intelligence tools in one place.</p>
-  <div class="links">
-    <a href="#">About</a>
-    <a href="#">Submit Tool</a>
-    <a href="#">Privacy</a>
-    <a href="#">Contact</a>
-  </div>
-  <p style="margin-top:20px;">© 2025 Adda of AI. All Rights Reserved.</p>
+  <p>
+    Adda of AI is a premium-style AI tools directory helping students, creators
+    and developers explore the best AI tools in one place.<br><br>
+    © 2025 Adda of AI • Made with ❤️
+  </p>
 </footer>
 
 <script>
 const tools=[
-{name:"ChatGPT",img:"https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",desc:"AI chatbot for writing & coding",url:"https://chat.openai.com",free:true},
-{name:"Gemini",img:"https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",desc:"Google AI assistant",url:"https://gemini.google.com",free:true},
-{name:"Suno AI",img:"https://pbs.twimg.com/profile_images/1737527668102176768/Cj_GqOmS_400x400.jpg",desc:"AI music generator",url:"https://suno.ai",free:false},
-{name:"Midjourney",img:"https://upload.wikimedia.org/wikipedia/commons/e/ed/Midjourney_Emblem.png",desc:"AI image generator",url:"https://midjourney.com",free:false},
-{name:"RunwayML",img:"https://runwayml.com/favicon.ico",desc:"AI video generator",url:"https://runwayml.com",free:false},
-{name:"Leonardo AI",img:"https://leonardo.ai/favicon.ico",desc:"Game & image AI",url:"https://leonardo.ai",free:true},
-{name:"Blackbox AI",img:"https://blackbox.ai/favicon.ico",desc:"AI coding helper",url:"https://blackbox.ai",free:true},
-{name:"ElevenLabs",img:"https://elevenlabs.io/favicon.ico",desc:"AI voice generator",url:"https://elevenlabs.io",free:false},
-{name:"Canva AI",img:"https://www.canva.com/favicon.ico",desc:"AI design tool",url:"https://canva.com",free:true},
-{name:"Notion AI",img:"https://notion.so/favicon.ico",desc:"AI productivity tool",url:"https://notion.so",free:false},
+ {name:"ChatGPT",img:"https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",desc:"AI chatbot for writing & coding",url:"https://chat.openai.com",free:true},
+ {name:"Gemini",img:"https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",desc:"Google AI assistant",url:"https://gemini.google.com",free:true},
+ {name:"Suno AI",img:"https://pbs.twimg.com/profile_images/1737527668102176768/Cj_GqOmS_400x400.jpg",desc:"AI music generator",url:"https://suno.ai",free:false},
+ {name:"Midjourney",img:"https://upload.wikimedia.org/wikipedia/commons/e/ed/Midjourney_Emblem.png",desc:"AI image generation",url:"https://midjourney.com",free:false},
+ {name:"RunwayML",img:"https://runwayml.com/favicon.ico",desc:"AI video creation",url:"https://runwayml.com",free:false},
+ {name:"Leonardo AI",img:"https://leonardo.ai/favicon.ico",desc:"Game & asset AI",url:"https://leonardo.ai",free:true},
+ {name:"Canva AI",img:"https://www.canva.com/favicon.ico",desc:"AI design tool",url:"https://canva.com",free:true},
+ {name:"Notion AI",img:"https://notion.so/favicon.ico",desc:"Productivity AI",url:"https://notion.so",free:false}
 ];
 
 const grid=document.getElementById("grid");
@@ -219,19 +226,16 @@ function load(list){
       <div class="title">${t.name}</div>
       <div class="badge ${t.free?'':'paid'}">${t.free?'FREE':'PAID'}</div>
       <div class="desc">${t.desc}</div>
-      <a class="btn" target="_blank" href="${t.url}">Visit</a>
+      <a class="visit" target="_blank" href="${t.url}">Visit Tool</a>
     </div>`;
-  })
+  });
 }
 load(tools);
 
 search.oninput=e=>{
-  const q=e.target.value.toLowerCase();
-  load(tools.filter(t=>t.name.toLowerCase().includes(q)||t.desc.toLowerCase().includes(q)));
-}
-function toggleDark(){
-  document.body.classList.toggle("dark");
-}
+ const q=e.target.value.toLowerCase();
+ load(tools.filter(t=>t.name.toLowerCase().includes(q)||t.desc.toLowerCase().includes(q)));
+};
 </script>
 
 </body>
