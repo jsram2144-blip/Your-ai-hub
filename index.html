@@ -1,241 +1,209 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Adda of AI — Discover Powerful AI Tools</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adda of AI – Pro AI Tools Directory</title>
 
 <style>
 :root{
-  --bg:#0b1120;
-  --glass:rgba(255,255,255,.08);
-  --border:rgba(255,255,255,.15);
-  --text:#f8fafc;
-  --sub:#94a3b8;
-  --primary:#38bdf8;
-  --accent:#a855f7;
+  --bg-main:#05070d;
+  --bg-glass:rgba(255,255,255,0.08);
+  --border-glass:rgba(255,255,255,0.15);
+  --text-main:#eaeaf0;
+  --text-muted:#a5a7b3;
+  --primary:#5f8cff;
+  --accent:#8b5cf6;
+  --radius:18px;
+  --blur:14px;
 }
-*{box-sizing:border-box}
+
+*{box-sizing:border-box;}
+
 body{
   margin:0;
-  font-family:Poppins,Arial;
-  background:
-   radial-gradient(circle at 20% 20%, #1e40af, transparent 40%),
-   radial-gradient(circle at 80% 10%, #7c3aed, transparent 40%),
-   var(--bg);
-  color:var(--text);
+  font-family:system-ui,-apple-system,Segoe UI,Roboto;
+  background:radial-gradient(circle at top,#0b1530,#05070d 60%);
+  color:var(--text-main);
 }
-a{text-decoration:none;color:inherit}
 
 /* HEADER */
 header{
   position:sticky;
   top:0;
-  z-index:99;
-  background:rgba(15,23,42,.75);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  padding:16px 40px;
+  backdrop-filter:blur(var(--blur));
+  background:rgba(5,7,13,0.65);
+  border-bottom:1px solid var(--border-glass);
+}
+
+.header-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:14px 18px;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
+
 .logo{
-  font-size:30px;
-  font-weight:800;
-  background:linear-gradient(90deg,var(--primary),var(--accent));
-  -webkit-background-clip:text;
-  color:transparent;
-}
-.nav{
-  display:flex;
-  gap:24px;
-  font-weight:500;
-  font-size:15px;
-}
-.nav a:hover{opacity:.8}
-
-/* HERO */
-.hero{
-  padding:120px 20px 90px;
-  text-align:center;
-}
-.hero h1{
-  font-size:56px;
-  font-weight:800;
-  line-height:1.1;
-}
-.hero h1 span{
-  background:linear-gradient(90deg,#38bdf8,#a855f7);
-  -webkit-background-clip:text;
-  color:transparent;
-}
-.hero p{
-  max-width:760px;
-  margin:22px auto 0;
-  font-size:18px;
-  color:var(--sub);
-}
-
-/* SEARCH */
-.search-wrap{
-  max-width:720px;
-  margin:40px auto 30px;
-  background:var(--glass);
-  border:1px solid var(--border);
-  backdrop-filter:blur(18px);
-  border-radius:28px;
-  padding:16px 22px;
-  box-shadow:0 20px 50px rgba(0,0,0,.4);
-}
-.search-wrap input{
-  width:100%;
-  background:transparent;
-  border:none;
-  outline:none;
-  font-size:17px;
-  color:white;
-}
-
-/* GRID */
-.grid{
-  padding:40px;
-  display:grid;
-  gap:30px;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-}
-.card{
-  background:var(--glass);
-  border:1px solid var(--border);
-  border-radius:24px;
-  padding:18px;
-  backdrop-filter:blur(15px);
-  transition:.35s;
-}
-.card:hover{
-  transform:translateY(-12px) scale(1.02);
-  box-shadow:0 30px 60px rgba(0,0,0,.55);
-}
-.card img{
-  width:100%;
-  height:120px;
-  object-fit:contain;
-}
-.title{
-  font-size:21px;
+  width:36px;height:36px;
+  border-radius:10px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;
   font-weight:700;
 }
-.badge{
-  display:inline-block;
-  margin:8px 0;
-  padding:4px 12px;
-  font-size:12px;
-  border-radius:999px;
-  background:#22c55e;
-}
-.paid{background:#a855f7}
-.desc{
-  font-size:14px;
-  color:var(--sub);
-  min-height:42px;
-}
-.visit{
-  margin-top:14px;
-  display:block;
-  text-align:center;
-  padding:11px;
-  border-radius:16px;
-  font-weight:600;
-  background:linear-gradient(135deg,var(--primary),var(--accent));
+
+.btn{
+  background:var(--bg-glass);
+  border:1px solid var(--border-glass);
+  color:var(--text-main);
+  padding:8px 14px;
+  border-radius:12px;
+  cursor:pointer;
 }
 
-/* FOOTER */
-footer{
-  margin-top:90px;
-  padding:70px 20px;
-  text-align:center;
-  border-top:1px solid var(--border);
-  background:rgba(2,6,23,.7);
-}
-footer p{
+.btn:hover{border-color:var(--primary);}
+
+/* MAIN */
+main{padding:30px 14px;}
+article{
   max-width:760px;
   margin:auto;
-  font-size:14px;
-  color:var(--sub);
+  background:var(--bg-glass);
+  border:1px solid var(--border-glass);
+  border-radius:var(--radius);
+  padding:22px;
 }
 
-/* RESPONSIVE */
-@media(max-width:600px){
-  .hero h1{font-size:38px}
-  .grid{padding:20px}
+/* CONTENT */
+.article-title{font-size:24px;}
+.article-desc{color:var(--text-muted);font-size:14px;}
+
+.author{
+  margin:18px 0;
+  display:flex;
+  gap:10px;
+  font-size:13px;
+  color:var(--text-muted);
 }
+
+.avatar{
+  width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(135deg,#38bdf8,#8b5cf6);
+}
+
+.media{
+  height:180px;
+  border-radius:14px;
+  background:linear-gradient(135deg,rgba(95,140,255,.35),rgba(139,92,246,.25));
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+}
+
+h2{margin-top:22px;}
+p{line-height:1.6;font-size:14px;}
+
+ul{
+  padding-left:18px;
+  font-size:14px;
+}
+
+pre{
+  background:#060914;
+  border-radius:12px;
+  padding:14px;
+  font-size:13px;
+  overflow:auto;
+}
+
+/* ACTIONS */
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+.like.active{color:var(--accent);border-color:var(--accent);}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">Adda of AI</div>
-  <nav class="nav">
-    <a href="#">Home</a>
-    <a href="#">Tools</a>
-    <a href="#">About</a>
-  </nav>
+  <div class="header-inner">
+    <div style="display:flex;gap:10px;align-items:center">
+      <div class="logo">AI</div>
+      <div>
+        <strong>Adda of AI</strong><br>
+        <small style="color:#aaa">Pro AI Tools Directory</small>
+      </div>
+    </div>
+    <button class="btn" onclick="openNewTab()">↗ Open</button>
+  </div>
 </header>
 
-<section class="hero">
-  <h1>Discover <span>Next-Gen AI Tools</span></h1>
-  <p>Explore powerful AI tools for writing, image, video, music & coding — all in one premium platform.</p>
-</section>
+<main>
+<article>
 
-<div class="search-wrap">
-  <input id="search" placeholder="Search any AI tool…">
+<h1 class="article-title">Adda of AI – Ultimate AI Tools Hub</h1>
+<p class="article-desc">
+Premium AI tools collection — clean, fast aur distraction-free.
+</p>
+
+<div class="author">
+  <div class="avatar"></div>
+  <div>
+    <strong>Admin – Adda of AI</strong><br>
+    <span id="date"></span>
+  </div>
 </div>
 
-<div id="grid" class="grid"></div>
+<div class="media">AI Preview Area</div>
 
-<footer>
-  <p>
-    Adda of AI is a premium-style AI tools directory helping students, creators
-    and developers explore the best AI tools in one place.<br><br>
-    © 2025 Adda of AI • Made with ❤️
-  </p>
-</footer>
+<h2>✨ Features</h2>
+<ul>
+  <li>Dark futuristic UI</li>
+  <li>Single HTML – Offline working</li>
+  <li>No login, no tracker</li>
+  <li>Gemini-style clean layout</li>
+</ul>
+
+<h2>📄 Example Code</h2>
+<pre><code>&lt;!-- Adda of AI Sample --&gt;
+&lt;button&gt;Explore AI Tools&lt;/button&gt;
+</code></pre>
+
+<div class="actions">
+  <button class="btn" onclick="copyLink()">🔗 Copy Link</button>
+  <button class="btn" onclick="downloadHTML()">⬇ Download</button>
+  <button class="btn like" id="likeBtn" onclick="like()">❤️ <span id="likes">0</span></button>
+</div>
+
+</article>
+</main>
 
 <script>
-const tools=[
- {name:"ChatGPT",img:"https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",desc:"AI chatbot for writing & coding",url:"https://chat.openai.com",free:true},
- {name:"Gemini",img:"https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",desc:"Google AI assistant",url:"https://gemini.google.com",free:true},
- {name:"Suno AI",img:"https://pbs.twimg.com/profile_images/1737527668102176768/Cj_GqOmS_400x400.jpg",desc:"AI music generator",url:"https://suno.ai",free:false},
- {name:"Midjourney",img:"https://upload.wikimedia.org/wikipedia/commons/e/ed/Midjourney_Emblem.png",desc:"AI image generation",url:"https://midjourney.com",free:false},
- {name:"RunwayML",img:"https://runwayml.com/favicon.ico",desc:"AI video creation",url:"https://runwayml.com",free:false},
- {name:"Leonardo AI",img:"https://leonardo.ai/favicon.ico",desc:"Game & asset AI",url:"https://leonardo.ai",free:true},
- {name:"Canva AI",img:"https://www.canva.com/favicon.ico",desc:"AI design tool",url:"https://canva.com",free:true},
- {name:"Notion AI",img:"https://notion.so/favicon.ico",desc:"Productivity AI",url:"https://notion.so",free:false}
-];
-
-const grid=document.getElementById("grid");
-function load(list){
-  grid.innerHTML="";
-  list.forEach(t=>{
-    grid.innerHTML+=`
-    <div class="card">
-      <img src="${t.img}">
-      <div class="title">${t.name}</div>
-      <div class="badge ${t.free?'':'paid'}">${t.free?'FREE':'PAID'}</div>
-      <div class="desc">${t.desc}</div>
-      <a class="visit" target="_blank" href="${t.url}">Visit Tool</a>
-    </div>`;
-  });
+date.innerText=new Date().toLocaleDateString("en-IN");
+let likes=Number(localStorage.likes||0),liked=localStorage.liked==="1";
+function like(){
+  liked=!liked;
+  likes+=liked?1:-1;
+  localStorage.likes=likes;
+  localStorage.liked=liked?"1":"0";
+  update();
 }
-load(tools);
+function update(){
+  likesEl.innerText=likes;
+  likeBtn.classList.toggle("active",liked);
+}
+let likesEl=document.getElementById("likes");
+let likeBtn=document.getElementById("likeBtn");
+update();
 
-search.oninput=e=>{
- const q=e.target.value.toLowerCase();
- load(tools.filter(t=>t.name.toLowerCase().includes(q)||t.desc.toLowerCase().includes(q)));
-};
+function copyLink(){navigator.clipboard.writeText(location.href);alert("Link copied ✅")}
+function openNewTab(){window.open(location.href,"_blank")}
+function downloadHTML(){
+  let b=new Blob([document.documentElement.outerHTML],{type:"text/html"});
+  let a=document.createElement("a");
+  a.href=URL.createObjectURL(b);
+  a.download="Adda-of-AI.html";
+  a.click();
+}
 </script>
 
 </body>
