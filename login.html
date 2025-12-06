@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login | Adda of AI</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Poppins,Arial;
+  background:linear-gradient(135deg,#2563eb,#7c3aed);
+}
+.box{
+  background:white;
+  padding:30px;
+  width:340px;
+  border-radius:14px;
+  box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+h2{text-align:center;margin-bottom:20px}
+input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #ccc;
+  outline:none;
+}
+button{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+  border:none;
+  border-radius:10px;
+  background:#2563eb;
+  color:white;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+}
+.switch{
+  text-align:center;
+  margin-top:15px;
+  font-size:14px;
+  cursor:pointer;
+  color:#2563eb;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2 id="title">Login</h2>
+
+  <input id="name" placeholder="Full Name" style="display:none">
+  <input id="email" type="email" placeholder="Email">
+  <input id="pass" type="password" placeholder="Password">
+
+  <button onclick="submitForm()">Login</button>
+
+  <div class="switch" onclick="toggle()">Create new account</div>
+</div>
+
+<script>
+let signup=false;
+function toggle(){
+  signup=!signup;
+  document.getElementById("name").style.display=signup?"block":"none";
+  document.getElementById("title").innerText=signup?"Sign Up":"Login";
+  document.querySelector("button").innerText=signup?"Create Account":"Login";
+  document.querySelector(".switch").innerText=signup?"Already have account? Login":"Create new account";
+}
+
+function submitForm(){
+  const email=emailInput.value=document.getElementById("email").value;
+  const pass=document.getElementById("pass").value;
+  const name=document.getElementById("name").value;
+
+  if(!email||!pass){alert("Fill all details");return;}
+
+  if(signup){
+    localStorage.setItem("user",JSON.stringify({name,email,pass}));
+    alert("Account created! Login now.");
+    toggle();
+  }else{
+    const u=JSON.parse(localStorage.getItem("user"));
+    if(!u||u.email!==email||u.pass!==pass){
+      alert("Invalid login");
+    }else{
+      localStorage.setItem("logged","yes");
+      window.location.href="index.html";
+    }
+  }
+}
+</script>
+
+</body>
+</html>
