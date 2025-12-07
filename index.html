@@ -8,7 +8,6 @@
 <style>
 :root{
   --bg:#050505;
-  --panel:#0b0b0b;
   --card:#111;
   --gold:#f5c542;
   --text:#f5f5f5;
@@ -16,208 +15,212 @@
   --border:#1f1f1f;
 }
 *{box-sizing:border-box}
-html,body{height:100%;margin:0;font-family:Inter,system-ui}
-body{background:var(--bg);color:var(--text);display:flex;flex-direction:column}
-
-.app{flex:1;display:flex;min-height:0}
+body{margin:0;font-family:Inter,system-ui;background:var(--bg);color:var(--text)}
+.app{display:flex;height:100vh}
 
 /* Sidebar */
 .sidebar{
-  width:240px;
-  background:#070707;
-  border-right:1px solid var(--border);
-  padding:20px;
+  width:260px;padding:20px;background:#070707;border-right:1px solid var(--border)
 }
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:25px;
-}
-.logo svg{width:36px;height:36px}
 .logo-text{
-  font-size:20px;
-  font-weight:700;
-  color:var(--gold);
+  font-size:20px;font-weight:700;color:var(--gold);margin-bottom:20px
 }
 .menu button{
-  width:100%;
-  background:none;
-  border:none;
-  color:var(--text);
-  padding:12px;
-  border-radius:8px;
-  cursor:pointer;
-  text-align:left;
+  width:100%;background:none;border:none;color:#fff;padding:12px;
+  border-radius:8px;text-align:left;cursor:pointer
 }
-.menu button:hover,
-.menu button.active{
-  background:rgba(245,197,66,.15);
-  color:var(--gold);
+.menu button.active,
+.menu button:hover{
+  background:rgba(245,197,66,.15);color:var(--gold)
+}
+.sidebar-ad{
+  margin-top:25px;padding:15px;border:1px dashed var(--border);
+  border-radius:12px;text-align:center;color:var(--muted)
 }
 
 /* Main */
 .main{flex:1;padding:30px;overflow:auto}
 .hero{text-align:center}
-.hero h1{font-size:36px}
 .hero span{color:var(--gold)}
-.hero p{color:var(--muted)}
-
-.search{max-width:520px;margin:25px auto}
+.search{max-width:520px;margin:20px auto}
 .search input{
-  width:100%;
-  padding:14px 18px;
-  border-radius:25px;
-  border:1px solid var(--border);
-  background:#0b0b0b;
-  color:#fff;
+  width:100%;padding:14px;border-radius:25px;border:1px solid var(--border);
+  background:#0b0b0b;color:#fff
 }
-
-/* Filters */
-.filters{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  margin-bottom:30px;
-}
+.filters{text-align:center;margin-bottom:20px}
 .filters button{
-  padding:8px 16px;
-  border-radius:20px;
-  background:#0b0b0b;
-  border:1px solid var(--border);
-  color:var(--gold);
-  cursor:pointer;
+  padding:8px 16px;border-radius:20px;border:1px solid var(--border);
+  background:#0b0b0b;color:var(--gold);cursor:pointer;margin:4px
 }
-.filters button.active{
-  background:var(--gold);
-  color:#000;
+.filters .active{background:var(--gold);color:#000}
+
+/* Ads */
+.top-ad{
+  max-width:728px;margin:20px auto;padding:15px;
+  border:1px dashed var(--border);border-radius:12px;text-align:center
 }
 
-/* Cards */
+/* Grid */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:20px;
+  gap:20px
 }
 .card{
   background:linear-gradient(145deg,#111,#090909);
+  padding:20px;border-radius:18px;
   border:1px solid var(--border);
-  border-radius:18px;
-  padding:20px;
-  cursor:pointer;
-  transition:.25s;
+  cursor:pointer;transition:.3s
 }
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 0 25px rgba(245,197,66,.18);
-}
-.card h3{margin:0}
-.card p{color:var(--muted)}
+.card:hover{transform:translateY(-4px)}
+.card p{color:var(--muted);margin:6px 0}
 .tag{font-size:12px;color:var(--gold)}
+.ad-card{
+  cursor:default;border:1px dashed var(--border);
+  text-align:center;background:#0b0b0b
+}
+
+/* ✅ SPONSORED GLOWING CARD */
+.sponsored{
+  position:relative;
+  border:2px solid var(--gold);
+  background:linear-gradient(135deg,#1a1400,#0b0b0b);
+  box-shadow:
+    0 0 30px rgba(245,197,66,.45),
+    0 0 70px rgba(245,197,66,.2);
+  animation:glowPulse 2.5s infinite alternate;
+}
+.sponsored::before{
+  content:"★ SPONSORED";
+  position:absolute;
+  top:14px;
+  right:14px;
+  background:var(--gold);
+  color:#000;
+  font-size:11px;
+  font-weight:700;
+  padding:4px 10px;
+  border-radius:20px;
+}
+@keyframes glowPulse{
+  from{box-shadow:0 0 25px rgba(245,197,66,.4)}
+  to{box-shadow:0 0 55px rgba(245,197,66,.8)}
+}
 
 /* Footer */
 footer{
-  background:#070707;
+  text-align:center;padding:15px;
   border-top:1px solid var(--border);
-  text-align:center;
-  padding:15px;
-  color:var(--muted);
+  color:var(--muted)
 }
-footer span{color:var(--gold)}
 </style>
 </head>
 
 <body>
-
 <div class="app">
 
 <!-- Sidebar -->
 <aside class="sidebar">
-  <div class="logo">
-    <svg viewBox="0 0 100 100">
-      <circle cx="50" cy="50" r="45" stroke="#f5c542" stroke-width="8" fill="none"/>
-      <path d="M30 55 L50 30 L70 55" stroke="#f5c542" stroke-width="6" fill="none"/>
-    </svg>
-    <div class="logo-text">Your AI Hub</div>
-  </div>
-
+  <div class="logo-text">Your AI Hub</div>
   <div class="menu">
     <button class="active" onclick="filterCategory('all',this)">All Tools</button>
-    <button onclick="filterCategory('video',this)">Text-to-Video</button>
+    <button onclick="filterCategory('video',this)">Video AI</button>
     <button onclick="filterCategory('image',this)">Image AI</button>
     <button onclick="filterCategory('voice',this)">Voice AI</button>
     <button onclick="filterCategory('music',this)">Music AI</button>
     <button onclick="filterCategory('code',this)">Coding AI</button>
     <button onclick="filterCategory('study',this)">Study AI</button>
   </div>
+  <div class="sidebar-ad"><b>Sponsored Ad</b><br>300x250</div>
 </aside>
 
 <!-- Main -->
 <main class="main">
-  <div class="hero">
-    <h1>Explore Premium <span>AI Tools</span></h1>
-    <p>Dark & Golden • Professional AI Directory</p>
-  </div>
 
-  <div class="search">
-    <input type="text" placeholder="Search AI tools... (visual only)">
-  </div>
+<div class="hero">
+  <h1>Explore <span>AI Tools</span></h1>
+  <p>Premium AI Tools Directory</p>
+</div>
 
-  <div class="filters">
-    <button class="active" onclick="filterType('all',this)">All</button>
-    <button onclick="filterType('free',this)">Free</button>
-    <button onclick="filterType('paid',this)">Paid</button>
-    <button onclick="filterType('trending',this)">Trending</button>
-  </div>
+<div class="search">
+  <input type="text" placeholder="Search AI tools...">
+</div>
 
-  <div class="grid">
+<div class="top-ad">
+  <b>Advertisement</b><br>728x90
+</div>
 
-<!-- ====== 20+ AI TOOLS ====== -->
-<div class="card" data-cat="study" data-type="free" onclick="go('https://chat.openai.com')"><h3>ChatGPT</h3><p>AI assistant</p><span class="tag">Free</span></div>
-<div class="card" data-cat="music" data-type="trending" onclick="go('https://suno.ai')"><h3>Suno AI</h3><p>Music generator</p><span class="tag">Trending</span></div>
-<div class="card" data-cat="video" data-type="paid" onclick="go('https://runwayml.com')"><h3>Runway</h3><p>AI video editor</p><span class="tag">Paid</span></div>
-<div class="card" data-cat="image" data-type="paid" onclick="go('https://midjourney.com')"><h3>Midjourney</h3><p>Image generation</p><span class="tag">Paid</span></div>
-<div class="card" data-cat="image" data-type="free" onclick="go('https://www.bing.com/images/create')"><h3>Bing Image Creator</h3><p>DALL-E images</p><span class="tag">Free</span></div>
-<div class="card" data-cat="voice" data-type="free" onclick="go('https://elevenlabs.io')"><h3>ElevenLabs</h3><p>AI voice</p><span class="tag">Free</span></div>
-<div class="card" data-cat="music" data-type="paid" onclick="go('https://www.aiva.ai')"><h3>AIVA</h3><p>Music composer</p><span class="tag">Paid</span></div>
-<div class="card" data-cat="code" data-type="paid" onclick="go('https://github.com/features/copilot')"><h3>GitHub Copilot</h3><p>Coding AI</p><span class="tag">Paid</span></div>
-<div class="card" data-cat="study" data-type="free" onclick="go('https://www.perplexity.ai')"><h3>Perplexity</h3><p>AI search</p><span class="tag">Free</span></div>
-<div class="card" data-cat="video" data-type="paid" onclick="go('https://pika.art')"><h3>Pika Labs</h3><p>Text-to-video</p><span class="tag">Paid</span></div>
+<div class="filters">
+  <button class="active" onclick="filterType('all',this)">All</button>
+  <button onclick="filterType('free',this)">Free</button>
+  <button onclick="filterType('paid',this)">Paid</button>
+  <button onclick="filterType('trending',this)">Trending</button>
+</div>
+
+<div class="grid">
+
+<!-- ✅ SPONSORED RUNWAY AI -->
+<div class="card sponsored"
+     data-cat="video"
+     data-type="paid"
+     onclick="go('https://runwayml.com')">
+  <h3>Runway AI</h3>
+  <p>Professional AI Video Editing & Text-to-Video</p>
+  <span class="tag">Paid • Featured</span>
+</div>
+
+<!-- OTHER AI TOOLS -->
+<div class="card" data-cat="study" data-type="free" onclick="go('https://chat.openai.com')"><h3>ChatGPT</h3><p>AI Assistant</p><span class="tag">Free</span></div>
+<div class="card" data-cat="music" data-type="trending" onclick="go('https://suno.ai')"><h3>Suno AI</h3><p>Music Generator</p><span class="tag">Trending</span></div>
+<div class="card" data-cat="image" data-type="paid" onclick="go('https://midjourney.com')"><h3>Midjourney</h3><p>Image Generation</p><span class="tag">Paid</span></div>
 <div class="card" data-cat="image" data-type="free" onclick="go('https://leonardo.ai')"><h3>Leonardo AI</h3><p>Image AI</p><span class="tag">Free</span></div>
-<div class="card" data-cat="study" data-type="free" onclick="go('https://notion.ai')"><h3>Notion AI</h3><p>Writing assistant</p><span class="tag">Free</span></div>
-<div class="card" data-cat="voice" data-type="paid" onclick="go('https://murf.ai')"><h3>Murf AI</h3><p>Text-to-speech</p><span class="tag">Paid</span></div>
-<div class="card" data-cat="video" data-type="paid" onclick="go('https://www.descript.com')"><h3>Descript</h3><p>Video editing</p><span class="tag">Paid</span></div>
-<div class="card" data-cat="image" data-type="free" onclick="go('https://playgroundai.com')"><h3>Playground AI</h3><p>Image creator</p><span class="tag">Free</span></div>
-<div class="card" data-cat="code" data-type="free" onclick="go('https://www.blackbox.ai')"><h3>Blackbox AI</h3><p>Code AI</p><span class="tag">Free</span></div>
-<div class="card" data-cat="study" data-type="free" onclick="go('https://quillbot.com')"><h3>Quillbot</h3><p>Paraphrasing</p><span class="tag">Free</span></div>
-<div class="card" data-cat="video" data-type="paid" onclick="go('https://www.synthesia.io')"><h3>Synthesia</h3><p>AI avatars</p><span class="tag">Paid</span></div>
+<div class="card" data-cat="voice" data-type="paid" onclick="go('https://elevenlabs.io')"><h3>ElevenLabs</h3><p>Voice AI</p><span class="tag">Paid</span></div>
+<div class="card" data-cat="study" data-type="free" onclick="go('https://perplexity.ai')"><h3>Perplexity</h3><p>AI Search</p><span class="tag">Free</span></div>
+<div class="card" data-cat="code" data-type="paid" onclick="go('https://github.com/features/copilot')"><h3>Copilot</h3><p>Coding AI</p><span class="tag">Paid</span></div>
+<div class="card" data-cat="video" data-type="paid" onclick="go('https://pika.art')"><h3>Pika</h3><p>Text-to-Video</p><span class="tag">Paid</span></div>
 <div class="card" data-cat="music" data-type="free" onclick="go('https://soundraw.io')"><h3>Soundraw</h3><p>Music AI</p><span class="tag">Free</span></div>
-<div class="card" data-cat="study" data-type="free" onclick="go('https://www.grammarly.com')"><h3>Grammarly</h3><p>Writing AI</p><span class="tag">Free</span></div>
+<div class="card" data-cat="study" data-type="free" onclick="go('https://grammarly.com')"><h3>Grammarly</h3><p>Writing AI</p><span class="tag">Free</span></div>
 
-  </div>
+<!-- Native Ad -->
+<div class="card ad-card">
+  <b>Sponsored Tool</b>
+  <p>Promote your AI tool here</p>
+  <span class="tag">Ad</span>
+</div>
+
+</div>
 </main>
 </div>
 
 <footer>
-© 2025 <span>Your AI Hub</span> • All Rights Reserved
+© 2025 <span style="color:#f5c542">Your AI Hub</span>
 </footer>
 
 <script>
 function go(url){window.open(url,'_blank')}
-function filterCategory(cat,btn){
-  document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.card').forEach(c=>{
-    c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none';
-  });
+let cat='all',type='all'
+function filterCategory(c,b){
+  cat=c;
+  document.querySelectorAll('.menu button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  apply()
 }
-function filterType(type,btn){
-  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.card').forEach(c=>{
-    c.style.display=(type==='all'||c.dataset.type===type)?'block':'none';
-  });
+function filterType(t,b){
+  type=t;
+  document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  apply()
 }
+function apply(){
+  const q=document.querySelector('.search input').value.toLowerCase();
+  document.querySelectorAll('.card:not(.ad-card)').forEach(c=>{
+    const m=(cat==='all'||c.dataset.cat===cat)
+    &&(type==='all'||c.dataset.type===type)
+    &&c.innerText.toLowerCase().includes(q)
+    c.style.display=m?'block':'none'
+  })
+}
+document.querySelector('.search input').addEventListener('input',apply)
 </script>
 
 </body>
