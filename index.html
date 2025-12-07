@@ -1,208 +1,222 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adda of AI – Pro AI Tools Directory</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Your AI Hub</title>
 
 <style>
 :root{
-  --bg-main:#05070d;
-  --bg-glass:rgba(255,255,255,0.08);
-  --border-glass:rgba(255,255,255,0.15);
-  --text-main:#eaeaf0;
-  --text-muted:#a5a7b3;
-  --primary:#5f8cff;
-  --accent:#8b5cf6;
-  --radius:18px;
-  --blur:14px;
+  --bg:#050505;
+  --panel:#0b0b0b;
+  --card:#111;
+  --gold:#f5c542;
+  --text:#f5f5f5;
+  --muted:#aaa;
+  --border:#1f1f1f;
 }
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui}
+body{background:var(--bg);color:var(--text);display:flex;flex-direction:column}
 
-*{box-sizing:border-box;}
+.app{flex:1;display:flex;min-height:0}
 
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto;
-  background:radial-gradient(circle at top,#0b1530,#05070d 60%);
-  color:var(--text-main);
+/* Sidebar */
+.sidebar{
+  width:240px;
+  background:#070707;
+  border-right:1px solid var(--border);
+  padding:20px;
 }
-
-/* HEADER */
-header{
-  position:sticky;
-  top:0;
-  backdrop-filter:blur(var(--blur));
-  background:rgba(5,7,13,0.65);
-  border-bottom:1px solid var(--border-glass);
-}
-
-.header-inner{
-  max-width:1100px;
-  margin:auto;
-  padding:14px 18px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
 .logo{
-  width:36px;height:36px;
-  border-radius:10px;
-  background:linear-gradient(135deg,var(--primary),var(--accent));
-  display:flex;align-items:center;justify-content:center;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:25px;
+}
+.logo svg{width:36px;height:36px}
+.logo-text{
+  font-size:20px;
   font-weight:700;
+  color:var(--gold);
+}
+.menu button{
+  width:100%;
+  background:none;
+  border:none;
+  color:var(--text);
+  padding:12px;
+  border-radius:8px;
+  cursor:pointer;
+  text-align:left;
+}
+.menu button:hover,
+.menu button.active{
+  background:rgba(245,197,66,.15);
+  color:var(--gold);
 }
 
-.btn{
-  background:var(--bg-glass);
-  border:1px solid var(--border-glass);
-  color:var(--text-main);
-  padding:8px 14px;
-  border-radius:12px;
+/* Main */
+.main{flex:1;padding:30px;overflow:auto}
+.hero{text-align:center}
+.hero h1{font-size:36px}
+.hero span{color:var(--gold)}
+.hero p{color:var(--muted)}
+
+.search{max-width:520px;margin:25px auto}
+.search input{
+  width:100%;
+  padding:14px 18px;
+  border-radius:25px;
+  border:1px solid var(--border);
+  background:#0b0b0b;
+  color:#fff;
+}
+
+/* Filters */
+.filters{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:30px;
+}
+.filters button{
+  padding:8px 16px;
+  border-radius:20px;
+  background:#0b0b0b;
+  border:1px solid var(--border);
+  color:var(--gold);
   cursor:pointer;
 }
-
-.btn:hover{border-color:var(--primary);}
-
-/* MAIN */
-main{padding:30px 14px;}
-article{
-  max-width:760px;
-  margin:auto;
-  background:var(--bg-glass);
-  border:1px solid var(--border-glass);
-  border-radius:var(--radius);
-  padding:22px;
+.filters button.active{
+  background:var(--gold);
+  color:#000;
 }
 
-/* CONTENT */
-.article-title{font-size:24px;}
-.article-desc{color:var(--text-muted);font-size:14px;}
-
-.author{
-  margin:18px 0;
-  display:flex;
-  gap:10px;
-  font-size:13px;
-  color:var(--text-muted);
+/* Cards */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:20px;
 }
-
-.avatar{
-  width:34px;height:34px;border-radius:50%;
-  background:linear-gradient(135deg,#38bdf8,#8b5cf6);
+.card{
+  background:linear-gradient(145deg,#111,#090909);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:20px;
+  cursor:pointer;
+  transition:.25s;
 }
-
-.media{
-  height:180px;
-  border-radius:14px;
-  background:linear-gradient(135deg,rgba(95,140,255,.35),rgba(139,92,246,.25));
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:20px;
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 25px rgba(245,197,66,.18);
 }
+.card h3{margin:0}
+.card p{color:var(--muted)}
+.tag{font-size:12px;color:var(--gold)}
 
-h2{margin-top:22px;}
-p{line-height:1.6;font-size:14px;}
-
-ul{
-  padding-left:18px;
-  font-size:14px;
+/* Footer */
+footer{
+  background:#070707;
+  border-top:1px solid var(--border);
+  text-align:center;
+  padding:15px;
+  color:var(--muted);
 }
-
-pre{
-  background:#060914;
-  border-radius:12px;
-  padding:14px;
-  font-size:13px;
-  overflow:auto;
-}
-
-/* ACTIONS */
-.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
-.like.active{color:var(--accent);border-color:var(--accent);}
+footer span{color:var(--gold)}
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="header-inner">
-    <div style="display:flex;gap:10px;align-items:center">
-      <div class="logo">AI</div>
-      <div>
-        <strong>Adda of AI</strong><br>
-        <small style="color:#aaa">Pro AI Tools Directory</small>
-      </div>
-    </div>
-    <button class="btn" onclick="openNewTab()">↗ Open</button>
+<div class="app">
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="logo">
+    <svg viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="45" stroke="#f5c542" stroke-width="8" fill="none"/>
+      <path d="M30 55 L50 30 L70 55" stroke="#f5c542" stroke-width="6" fill="none"/>
+    </svg>
+    <div class="logo-text">Your AI Hub</div>
   </div>
-</header>
 
-<main>
-<article>
-
-<h1 class="article-title">Adda of AI – Ultimate AI Tools Hub</h1>
-<p class="article-desc">
-Premium AI tools collection — clean, fast aur distraction-free.
-</p>
-
-<div class="author">
-  <div class="avatar"></div>
-  <div>
-    <strong>Admin – Adda of AI</strong><br>
-    <span id="date"></span>
+  <div class="menu">
+    <button class="active" onclick="filterCategory('all',this)">All Tools</button>
+    <button onclick="filterCategory('video',this)">Text-to-Video</button>
+    <button onclick="filterCategory('image',this)">Image AI</button>
+    <button onclick="filterCategory('voice',this)">Voice AI</button>
+    <button onclick="filterCategory('music',this)">Music AI</button>
+    <button onclick="filterCategory('code',this)">Coding AI</button>
+    <button onclick="filterCategory('study',this)">Study AI</button>
   </div>
-</div>
+</aside>
 
-<div class="media">AI Preview Area</div>
+<!-- Main -->
+<main class="main">
+  <div class="hero">
+    <h1>Explore Premium <span>AI Tools</span></h1>
+    <p>Dark & Golden • Professional AI Directory</p>
+  </div>
 
-<h2>✨ Features</h2>
-<ul>
-  <li>Dark futuristic UI</li>
-  <li>Single HTML – Offline working</li>
-  <li>No login, no tracker</li>
-  <li>Gemini-style clean layout</li>
-</ul>
+  <div class="search">
+    <input type="text" placeholder="Search AI tools... (visual only)">
+  </div>
 
-<h2>📄 Example Code</h2>
-<pre><code>&lt;!-- Adda of AI Sample --&gt;
-&lt;button&gt;Explore AI Tools&lt;/button&gt;
-</code></pre>
+  <div class="filters">
+    <button class="active" onclick="filterType('all',this)">All</button>
+    <button onclick="filterType('free',this)">Free</button>
+    <button onclick="filterType('paid',this)">Paid</button>
+    <button onclick="filterType('trending',this)">Trending</button>
+  </div>
 
-<div class="actions">
-  <button class="btn" onclick="copyLink()">🔗 Copy Link</button>
-  <button class="btn" onclick="downloadHTML()">⬇ Download</button>
-  <button class="btn like" id="likeBtn" onclick="like()">❤️ <span id="likes">0</span></button>
-</div>
+  <div class="grid">
 
-</article>
+<!-- ====== 20+ AI TOOLS ====== -->
+<div class="card" data-cat="study" data-type="free" onclick="go('https://chat.openai.com')"><h3>ChatGPT</h3><p>AI assistant</p><span class="tag">Free</span></div>
+<div class="card" data-cat="music" data-type="trending" onclick="go('https://suno.ai')"><h3>Suno AI</h3><p>Music generator</p><span class="tag">Trending</span></div>
+<div class="card" data-cat="video" data-type="paid" onclick="go('https://runwayml.com')"><h3>Runway</h3><p>AI video editor</p><span class="tag">Paid</span></div>
+<div class="card" data-cat="image" data-type="paid" onclick="go('https://midjourney.com')"><h3>Midjourney</h3><p>Image generation</p><span class="tag">Paid</span></div>
+<div class="card" data-cat="image" data-type="free" onclick="go('https://www.bing.com/images/create')"><h3>Bing Image Creator</h3><p>DALL-E images</p><span class="tag">Free</span></div>
+<div class="card" data-cat="voice" data-type="free" onclick="go('https://elevenlabs.io')"><h3>ElevenLabs</h3><p>AI voice</p><span class="tag">Free</span></div>
+<div class="card" data-cat="music" data-type="paid" onclick="go('https://www.aiva.ai')"><h3>AIVA</h3><p>Music composer</p><span class="tag">Paid</span></div>
+<div class="card" data-cat="code" data-type="paid" onclick="go('https://github.com/features/copilot')"><h3>GitHub Copilot</h3><p>Coding AI</p><span class="tag">Paid</span></div>
+<div class="card" data-cat="study" data-type="free" onclick="go('https://www.perplexity.ai')"><h3>Perplexity</h3><p>AI search</p><span class="tag">Free</span></div>
+<div class="card" data-cat="video" data-type="paid" onclick="go('https://pika.art')"><h3>Pika Labs</h3><p>Text-to-video</p><span class="tag">Paid</span></div>
+<div class="card" data-cat="image" data-type="free" onclick="go('https://leonardo.ai')"><h3>Leonardo AI</h3><p>Image AI</p><span class="tag">Free</span></div>
+<div class="card" data-cat="study" data-type="free" onclick="go('https://notion.ai')"><h3>Notion AI</h3><p>Writing assistant</p><span class="tag">Free</span></div>
+<div class="card" data-cat="voice" data-type="paid" onclick="go('https://murf.ai')"><h3>Murf AI</h3><p>Text-to-speech</p><span class="tag">Paid</span></div>
+<div class="card" data-cat="video" data-type="paid" onclick="go('https://www.descript.com')"><h3>Descript</h3><p>Video editing</p><span class="tag">Paid</span></div>
+<div class="card" data-cat="image" data-type="free" onclick="go('https://playgroundai.com')"><h3>Playground AI</h3><p>Image creator</p><span class="tag">Free</span></div>
+<div class="card" data-cat="code" data-type="free" onclick="go('https://www.blackbox.ai')"><h3>Blackbox AI</h3><p>Code AI</p><span class="tag">Free</span></div>
+<div class="card" data-cat="study" data-type="free" onclick="go('https://quillbot.com')"><h3>Quillbot</h3><p>Paraphrasing</p><span class="tag">Free</span></div>
+<div class="card" data-cat="video" data-type="paid" onclick="go('https://www.synthesia.io')"><h3>Synthesia</h3><p>AI avatars</p><span class="tag">Paid</span></div>
+<div class="card" data-cat="music" data-type="free" onclick="go('https://soundraw.io')"><h3>Soundraw</h3><p>Music AI</p><span class="tag">Free</span></div>
+<div class="card" data-cat="study" data-type="free" onclick="go('https://www.grammarly.com')"><h3>Grammarly</h3><p>Writing AI</p><span class="tag">Free</span></div>
+
+  </div>
 </main>
+</div>
+
+<footer>
+© 2025 <span>Your AI Hub</span> • All Rights Reserved
+</footer>
 
 <script>
-date.innerText=new Date().toLocaleDateString("en-IN");
-let likes=Number(localStorage.likes||0),liked=localStorage.liked==="1";
-function like(){
-  liked=!liked;
-  likes+=liked?1:-1;
-  localStorage.likes=likes;
-  localStorage.liked=liked?"1":"0";
-  update();
+function go(url){window.open(url,'_blank')}
+function filterCategory(cat,btn){
+  document.querySelectorAll('.menu button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.cat===cat)?'block':'none';
+  });
 }
-function update(){
-  likesEl.innerText=likes;
-  likeBtn.classList.toggle("active",liked);
-}
-let likesEl=document.getElementById("likes");
-let likeBtn=document.getElementById("likeBtn");
-update();
-
-function copyLink(){navigator.clipboard.writeText(location.href);alert("Link copied ✅")}
-function openNewTab(){window.open(location.href,"_blank")}
-function downloadHTML(){
-  let b=new Blob([document.documentElement.outerHTML],{type:"text/html"});
-  let a=document.createElement("a");
-  a.href=URL.createObjectURL(b);
-  a.download="Adda-of-AI.html";
-  a.click();
+function filterType(type,btn){
+  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.card').forEach(c=>{
+    c.style.display=(type==='all'||c.dataset.type===type)?'block':'none';
+  });
 }
 </script>
 
